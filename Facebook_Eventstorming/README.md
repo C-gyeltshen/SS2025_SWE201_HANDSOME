@@ -182,9 +182,13 @@ The following domain events are identified in the Facebook application:
 
 ## Aggregates
 
+![final](./image/final.jpg)
+
 1. **User**
 2. **Post**
 3. **Story**
 4. **FriendRequest**
 5. **Settings**
 6. **notification**
+7. **Notification**
+8. **Moderation**
