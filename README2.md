@@ -3,24 +3,42 @@
 ## Introduction
 This document outlines the event storming session conducted for the Facebook application. It captures the key domain events, commands, aggregates, and actors involved in the system.
 
-### **Sticky notes used for event storming**
+## Scope and Objectives
+**Scope** : Scope of this document is to capture the key domain events and command involved in the Facebook application. Like, 
 
-![sticky notes](./image/sticky.png)
+- User Registration
+- View Profile
+- Update Profile
+- Create Post
+- Like Post
+- Comment on Post
+- Share Post
+- Report Post
+- Block User
+- Tag Friend
+- Create Story
+- View Story
+- Like Story
+- Comment on Story
+- Share Story
+- Report Story
+- Send Friend Request
+- Accept Friend Request
+- Reject Friend Request
+- View Friend List
+- View Notification
+- View News Feed
+- Creating Group
 
-## Actors
-- **User**: A person who interacts with Facebook.
-- **System**: The Facebook application.
-- **Notification Service**: Service that sends notifications to users.
+**Objective** : The objective of this document is to provide a high-level overview of the Facebook application and capture the key domain events and commands involved in the system.     
 
-    ![actor](./image/actors.png)
 
-## Seven steps of event storming
 
-### 1. **Identifying domain events**
+## Domain Events
 
-All ***domain event*** is been identified and ***written in the past tense*** and generally describe an action of some kind. The goal is to collect as many domain events as possible. 
+The following domain events are identified in the Facebook application:
 
-![domain event](./image/domainEvent.jpg)
+![domain_event](../)
 
 - **UserRegistered** – A new user has signed up.
 - **ProfileUpdated** – A user has changed their profile details.
@@ -74,15 +92,7 @@ All ***domain event*** is been identified and ***written in the past tense*** an
 - **UserLoggedOut** - A user has signed out of their account
 - **AccountDeactivated** -  A user has deleted their account
 
-
-### 2. **Identifying commands**
-
-Triggers, or commands, responsible for creating each domain event are written with verbs in the present tense. 
-
-commands are given by an ***entity***, either an ***actor*** or a ***system***.
-
-![command](./image/commands1.png)
-
+## Facebook Application - Command List
 
 ### User Management
 | **Command** | **Description** |
@@ -165,27 +175,15 @@ commands are given by an ***entity***, either an ***actor*** or a ***system***.
 
 ---
 
+## Aggregates
 
-### 3. **Identifying the entities or actors**
+![final](./image/final.jpg)
 
-Actors represent the **external users, systems, or processes** that interact with the domain. They initiate or are affected by events in the system, often triggering commands that result in state changes. Actors play a key role in understanding the **boundaries of the system** and clarifying who or what is driving the events.
-
-![actors](./image/actors.png)
-
-![actor](./image/actor.jpg)
-
-### 4. **Introducing policies**
-
-Policies are applied **after a domain event**, policies use rules to determine the next step in your workflow. Examples of rules include performing validation on user input, making an if/else decision based on a particular variable, or taking action depending on whether the previous event was processed successfully or not.
-
-![policy](./image/policies.jpg)
-
-### 5. **Identifying artefacts and schemas from domain events.**
-
-![artifacts](./image/artifacts.jpg)
-
-### 6. **Identifying Aggregate events.**
-
-![aggregate](./image/artifact.jpg)
-
-
+1. **User**
+2. **Post**
+3. **Story**
+4. **FriendRequest**
+5. **Settings**
+6. **notification**
+7. **Notification**
+8. **Moderation**
