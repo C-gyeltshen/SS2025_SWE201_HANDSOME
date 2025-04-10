@@ -174,7 +174,7 @@ Actors represent the **external users, systems, or processes** that interact wit
 
 ### 4. **Introducing policies**
 
-Policies are applied **after a domain event**, policies use rules to determine the next step in your workflow. Examples of rules include performing validation on user input, making an if/else decision based on a particular variable, or taking action depending on whether the previous event was processed successfully or not.
+Policies are applied **after a domain event**, policies use rules to determine the next step in your workflow. Examples of rules include performing validation on user input, making an if/else decision based on a particular variable, or taking action depending on whether the previous event was processed successfully or not .
 
 ![policy](./image/policies.jpg)
 
