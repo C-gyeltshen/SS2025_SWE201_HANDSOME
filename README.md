@@ -1,3 +1,0 @@
-# SS2025_SWE201_HANDSOME
-
-session 1
