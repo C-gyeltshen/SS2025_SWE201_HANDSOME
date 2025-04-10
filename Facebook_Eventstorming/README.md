@@ -74,7 +74,6 @@ All ***domain event*** is been identified and ***written in the past tense*** an
 - **UserLoggedOut** - A user has signed out of their account
 - **AccountDeactivated** -  A user has deleted their account
 
-
 ### 2. **Identifying commands**
 
 Triggers, or commands, responsible for creating each domain event are written with verbs in the present tense. 
@@ -165,7 +164,6 @@ commands are given by an ***entity***, either an ***actor*** or a ***system***.
 
 ---
 
-
 ### 3. **Identifying the entities or actors**
 
 Actors represent the **external users, systems, or processes** that interact with the domain. They initiate or are affected by events in the system, often triggering commands that result in state changes. Actors play a key role in understanding the **boundaries of the system** and clarifying who or what is driving the events.
@@ -188,4 +186,6 @@ Policies are applied **after a domain event**, policies use rules to determine t
 
 ![aggregate](./image/artifact.jpg)
 
+### 7. **Identifying Domain Model.**
 
+![domain model](./image/domain_model.jpeg)
