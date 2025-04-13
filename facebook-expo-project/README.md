@@ -1,50 +1,63 @@
-# Welcome to your Expo app 👋
+# Facebook Magic Link Auth - React Native App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a React Native project that demonstrates how to implement a **magic link authentication** system using **Supabase**. The app also includes a custom **Facebook-themed splash screen**, a **signup page**, and a **home page** for logged-in users.
 
-## Get started
+## ✨ Features
 
-1. Install dependencies
+- 🚀 Facebook-themed Splash Screen
+- 🔐 Magic Link Signup via Supabase Auth
+- 📥 Signup Page for User Registration
+- 🏠 Home Page (Post-login)
+- 📱 Built with React Native (Expo)
 
+## 🛠 Tech Stack
+
+- **React Native** (Expo)
+- **Supabase** (Auth)
+- **Magic Link Authentication**
+- **React Navigation** for navigation between screens
+
+## 📸 Screens
+
+| Splash Screen | Signup Page | Home Page |
+|---------------|-------------|-----------|
+| ![Splash](./assets/splash.png) | ![Signup](./assets/signup.png) | ![Home](./assets/home.png) |
+
+## Step By Step Implementation
+
+1. **Create a new Expo project**:
    ```bash
-   npm install
+   npx create-expo-app facebook-magic-link-auth
+   cd facebook-magic-link-auth
    ```
-
-2. Start the app
-
+2. **Install dependencies**:
    ```bash
-    npx expo start
+   npm install @react-navigation/native @react-navigation/native-stack react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
    ```
+3. **Install Supabase**:
+   ```bash
+   npm install @supabase/supabase-js
+   ```
+4. **Set up Supabase**:
+   - Create a new Supabase project at [Supabase](https://supabase.io/).
+   - Enable **Email Auth** in the Supabase dashboard.
+   - Copy your Supabase URL and Anon Key.
+5. Create home screen, signup screen, and splash screen components.
 
-In the output, you'll find options to open the app in a
+| Splash Screen | Signup Page | Home Page |
+|---------------|-------------|-----------|
+| ![Splash](./assets/splash.png) | ![Signup](./assets/signup.png) | ![Home](./assets/home.png) |
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+6. Create a helper file lib/supabase.ts to initialize Supabase.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+   [You can follow this docs for creating a helper file](https://supabase.com/docs/guides/auth/quickstarts/react-native)
 
-## Get a fresh project
+   ![LIB](./assets/superbase.png)
 
-When you're ready, run:
+   Add your Supabase URL and Anon Key in the helper file.
 
-```bash
-npm run reset-project
-```
+7. Implement the logic for magic link authentication in the signup screen. [Docs](https://supabase.com/docs/guides/auth/auth-email-passwordless?queryGroups=language&language=react-native)
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+   A magic link lets users log in by clicking a link sent to their email—no password needed.
 
-## Learn more
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
