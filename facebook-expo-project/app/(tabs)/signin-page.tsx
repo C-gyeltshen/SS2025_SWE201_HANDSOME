@@ -1,17 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Pressable, StyleSheet, SafeAreaView } from 'react-native';
 import { useRouter } from 'expo-router';
+import { supabase } from '@/lib/supabase';
+import { makeRedirectUri } from 'expo-auth-session';
+
+const redirectTo = makeRedirectUri();
 
 export default function SignInScreen() {
   const [phoneOrEmail, setPhoneOrEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [emailForMagicLink, setEmailForMagicLink] = useState('');
+  const [showMagicLinkInput, setShowMagicLinkInput] = useState(false);
   const router = useRouter();
+
+  const sendMagicLink = async () => {
+    if (!emailForMagicLink) {
+      alert("Please enter a valid email.");
+      return;
+    }
+
+    const { error } = await supabase.auth.signInWithOtp({
+      email: emailForMagicLink,
+      options: {
+        emailRedirectTo: redirectTo,
+      },
+    });
+    console.log("user logged in")
+
+    if (error) {
+      alert(error.message);
+      return;
+    }
+    alert("Magic link sent! Please check your email.");
+  };
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.contentContainer}>
         <Text style={styles.logoText}>facebook</Text>
-        
+
         <View style={styles.formContainer}>
           <TextInput
             style={styles.input}
@@ -19,7 +46,7 @@ export default function SignInScreen() {
             value={phoneOrEmail}
             onChangeText={setPhoneOrEmail}
           />
-          
+
           <TextInput
             style={styles.input}
             placeholder="Password"
@@ -27,34 +54,51 @@ export default function SignInScreen() {
             value={password}
             onChangeText={setPassword}
           />
-          
+
+          <Pressable onPress={() => setShowMagicLinkInput(true)}>
+            <Text style={styles.megicLinkText}>SignUp using Magic link</Text>
+          </Pressable>
+
+          {showMagicLinkInput && (
+            <TextInput
+              style={styles.input}
+              placeholder="Enter your email for magic link"
+              value={emailForMagicLink}
+              onChangeText={setEmailForMagicLink}
+            />
+          )}
+
+          <Pressable onPress={sendMagicLink}>
+            <Text style={styles.megicLinkText}>Send Magic Link</Text>
+          </Pressable>
+
           <Pressable style={styles.loginButton} onPress={() => router.push('/home')}>
             <Text style={styles.loginButtonText}>Log In</Text>
           </Pressable>
-          
+
           <Pressable onPress={() => router.push('/forgot-password')}>
             <Text style={styles.forgotPasswordText}>Forgotten password?</Text>
           </Pressable>
-          
+
           <View style={styles.divider}>
             <View style={styles.dividerLine} />
             <Text style={styles.dividerText}>or</Text>
             <View style={styles.dividerLine} />
           </View>
-          
+
           <Pressable style={styles.createAccountButton} onPress={() => router.push('/signup')}>
             <Text style={styles.createAccountButtonText}>Create New Account</Text>
           </Pressable>
         </View>
       </View>
-      
+
       <View style={styles.footer}>
         <View style={styles.footerLinks}>
           <Text style={styles.footerText}>About</Text>
           <Text style={styles.footerText}>Help</Text>
           <Text style={styles.footerText}>More</Text>
         </View>
-        
+
         <Text style={styles.copyright}>Meta © 2025</Text>
       </View>
     </SafeAreaView>
@@ -160,5 +204,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#737373',
     fontSize: 12,
+  },
+  megicLinkText: {
+    color: 'black',
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    paddingBottom: 10,
   },
 });
