@@ -95,7 +95,11 @@ export default function FacebookFeed() {
       </View>
 
       {/* Main content */}
-      <ScrollView style={styles.scrollView}>
+      <ScrollView 
+        style={styles.scrollView}
+        contentContainerStyle={styles.scrollViewContent}
+        showsVerticalScrollIndicator={false}
+      >
         {/* Stories row */}
         <View style={styles.storiesContainer}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.storiesScroll}>
@@ -232,6 +236,9 @@ export default function FacebookFeed() {
             </View>
           </View>
         ))}
+        
+        {/* Add some bottom padding to ensure last post is visible above bottom nav */}
+        <View style={{ height: 20 }} />
       </ScrollView>
 
       {/* Bottom navigation */}
@@ -301,6 +308,9 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
+  },
+  scrollViewContent: {
+    flexGrow: 1,
   },
   storiesContainer: {
     backgroundColor: '#fff',
@@ -479,9 +489,6 @@ const styles = StyleSheet.create({
   statsText: {
     fontSize: 12,
     color: '#65676b',
-  },
-  commentsSharesContainer: {
-    flexDirection: 'row',
   },
   commentsSharesContainer: {
     flexDirection: 'row',

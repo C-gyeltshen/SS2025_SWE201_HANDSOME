@@ -1,6 +1,6 @@
 import "react-native-url-polyfill/auto";
 import React, { useState, useEffect } from "react";
-import { View, Text } from "react-native";
+import { View, Text, SafeAreaView } from "react-native";
 import { Session } from "@supabase/supabase-js";
 import { supabase } from "./lib/supabase";
 import SplashScreenComponent from "./(tabs)/SplashScreen";
@@ -23,17 +23,12 @@ export default function App() {
   }, []);
 
   return (
-    <View>
+    <SafeAreaView style={{ flex: 1 }}>
       {session && session.user ? (
-        // <View>
-        //   <Text>Hello, this is my Home component!</Text>
-        //   <Text>{JSON.stringify(session.user)}</Text>
-        //   <Text>WE ARE HERE</Text>
-        // </View>
         <FacebookFeed />
       ) : (
         <SplashScreenComponent />
       )}
-    </View>
+    </SafeAreaView>
   );
 }
