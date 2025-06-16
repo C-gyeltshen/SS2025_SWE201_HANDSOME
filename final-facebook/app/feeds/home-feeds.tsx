@@ -5,11 +5,6 @@ import Stories from '../Components/Stories';
 import CreatePost from '../Components/Createpost';
 import Post from '../Components/Post';
 import BottomNavigation from '../Components/bottomnavigation';
-// import Header from './components/Header';
-// import Stories from './components/Stories';
-// import CreatePost from './components/CreatePost';
-// import Post from './components/Post';
-// import BottomNavigation from './components/BottomNavigation';
 
 interface PostData {
   id: number;
