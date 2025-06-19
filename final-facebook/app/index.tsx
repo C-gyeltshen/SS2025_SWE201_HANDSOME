@@ -4,8 +4,6 @@ import { View, Text, SafeAreaView } from "react-native";
 import { Session } from "@supabase/supabase-js";
 import { supabase } from "./lib/supabase";
 import SplashScreenComponent from "./(tabs)/SplashScreen";
-import TodoApp from "./(tabs)/feeds";
-import LoadingScreen from "./(tabs)/isLoading";
 import FacebookFeed from "./feeds/home-feeds";
 
 export default function App() {
