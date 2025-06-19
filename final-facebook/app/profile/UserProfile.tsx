@@ -9,6 +9,7 @@ import {
   SafeAreaView,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import BottomNavigation from '../Components/bottomnavigation';
 
 const UserProfile: React.FC = () => {
   return (
@@ -159,6 +160,7 @@ const UserProfile: React.FC = () => {
           </View>
         </View>
       </ScrollView>
+      <BottomNavigation activeTab="profile" />
     </SafeAreaView>
   );
 };
