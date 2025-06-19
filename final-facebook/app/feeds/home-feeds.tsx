@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import Header from '../Components/Header';
-import Stories from '../Components/Stories';
-import CreatePost from '../Components/Createpost';
-import Post from '../Components/Post';
+import Stories from './components/Stories';
+import CreatePost from './components/Createpost';
+import Post from './components/Post';
 import BottomNavigation from '../Components/bottomnavigation';
 
 interface PostData {
@@ -38,6 +38,7 @@ export default function FacebookFeed(): React.JSX.Element {
       id: 2,
       username: 'Gyaltsen',
       timePosted: '5 hrs ago',
+      
       avatarUrl: 'https://randomuser.me/api/portraits/men/32.jpg',
       content: 'Just completed my first marathon! Hard work pays off.',
       imageUrl: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',

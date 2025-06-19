@@ -18,7 +18,10 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({
     <View style={styles.bottomNav}>
       <TouchableOpacity 
         style={styles.navButton}
-        onPress={() => onTabPress?.('home')}
+        onPress={() => {
+          onTabPress?.('profile');
+          router.push('/feeds/home-feeds');
+        }}
       >
         <Ionicons 
           name="home" 

@@ -29,6 +29,9 @@ export const useAuthStore = create<AuthState>((set) => ({
     }
   },
 
+
+
+  
   signOut: async () => {
     try {
       set({ isLoading: true });
